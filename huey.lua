@@ -3,7 +3,7 @@ local esc = string.char(27)
 local fg_reset = esc..'[39m'
 
 local function fg(n)
-  return '%s[38;5;%dm':format(esc, n)
+  return ('%s[38;5;%dm'):format(esc, n)
 end
 
 local function rgb(r, g, b)
