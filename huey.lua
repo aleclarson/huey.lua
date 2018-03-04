@@ -38,16 +38,21 @@ local function install(print)
     black = {0, 0, 0},
   }
 
-  if print == nil then
-    print = _G.print
-  end
-
+  if print == nil then print = _G.print end
+  local term = setmetatable({}, {
+    __call = function(self, ...)
+      local args = {...}
+      return print(table.concat(args, ' '))
+    end,
+  })
   for name, color in pairs(fg_colors) do
     color = fg(rgb(unpack(color)))
-    print[name] = function(...)
-      print(color, unpack(arg), fg_reset)
+    term[name] = function(...)
+      local args = {...}
+      return print(color .. table.concat(args, ' ') .. fg_reset)
     end
   end
+  return term
 end
 
 return {
