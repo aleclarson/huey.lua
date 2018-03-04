@@ -17,27 +17,27 @@ local function rgb_fn(r, g, b)
   end
 end
 
-local function install(print)
-  local fg_colors = {
-    red = {5, 0, 0},
-    pale_red = {5, 0, 1},
-    blue = {0, 1, 5},
-    pale_blue = {3, 3, 5},
-    green = {0, 5, 1},
-    pale_green = {0, 5, 3},
-    yellow = {5, 5, 0},
-    pale_yellow = {5, 5, 2},
-    cyan = {0, 3, 4},
-    pale_cyan = {1, 4, 5},
-    pink = {5, 0, 4},
-    pale_pink = {5, 1, 4},
-    white = {5, 5, 5},
-    silver = {4, 4, 4},
-    gray = {2, 2, 2},
-    coal = {1, 1, 1},
-    black = {0, 0, 0},
-  }
+local fg_colors = {
+  red = {5, 0, 0},
+  pale_red = {5, 0, 1},
+  blue = {0, 1, 5},
+  pale_blue = {3, 3, 5},
+  green = {0, 5, 1},
+  pale_green = {0, 5, 3},
+  yellow = {5, 5, 0},
+  pale_yellow = {5, 5, 2},
+  cyan = {0, 3, 4},
+  pale_cyan = {1, 4, 5},
+  pink = {5, 0, 4},
+  pale_pink = {5, 1, 4},
+  white = {5, 5, 5},
+  silver = {4, 4, 4},
+  gray = {2, 2, 2},
+  coal = {1, 1, 1},
+  black = {0, 0, 0},
+}
 
+local function install(print)
   if print == nil then print = _G.print end
   local term = setmetatable({}, {
     __call = function(self, ...)
